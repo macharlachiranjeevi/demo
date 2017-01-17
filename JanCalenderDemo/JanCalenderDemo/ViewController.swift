@@ -56,7 +56,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
 
                 startingRow = indexPath?.row
 
-                for i in 0 ..< 40  {
+                for i in 0 ..< self.items.count  {
                     let newIndexPath = IndexPath(row: i, section: 1)
                     let cell = collectionView!.cellForItem(at: newIndexPath)
                     cell?.backgroundColor = UIColor.white
@@ -112,7 +112,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
 
                 } else {
 
-                    for i in 0 ..< 40  {
+                    for i in 0 ..< self.items.count  {
                         let newIndexPath = IndexPath(row: i, section: 1)
                         let cell = collectionView!.cellForItem(at: newIndexPath)
                         cell?.backgroundColor = UIColor.white
@@ -196,7 +196,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
     let reuseIdentifier = "DateCollectionViewCell" // also enter this string as the cell identifier in the storyboard
     var items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
 
-    var itemss = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    var weeks = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -214,7 +214,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! DateCollectionViewCell
         if indexPath.section == 0 {
-        cell.dateLbl.text = self.itemss[indexPath.item]
+        cell.dateLbl.text = self.weeks[indexPath.item]
             cell.dateLbl.textColor = UIColor.white
             cell.backgroundColor = UIColor.blue
         }
