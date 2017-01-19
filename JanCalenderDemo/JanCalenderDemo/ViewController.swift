@@ -56,10 +56,10 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
 
                 startingRow = indexPath?.row
 
-                for i in 0 ..< self.items.count  {
+                for i in 0 ..< self.days.count  {
                     let newIndexPath = IndexPath(row: i, section: 1)
-                    let cell = collectionView!.cellForItem(at: newIndexPath)
-                    cell?.backgroundColor = UIColor.white
+                    let cell = collectionView!.cellForItem(at: newIndexPath) as? DateCollectionViewCell
+                    cell?.imgView.image = UIImage(named:"greenIcon")
                 }
 
                 selectedIndexes.removeAllObjects()
@@ -77,13 +77,13 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
                         for index in stride(from: startingRow, to: last, by: -1){
 
                             let newIndexPath = IndexPath(row: index, section: 1)
-                            let cell = collectionView!.cellForItem(at: newIndexPath)
+                            let cell = collectionView!.cellForItem(at: newIndexPath) as? DateCollectionViewCell
 
 
                             if newIndexPath.row % 7 == 5 || newIndexPath.row % 7 == 6{
-                                cell?.backgroundColor = UIColor.white
+                               cell?.imgView.image = UIImage(named:"crossIcon")
                             } else {
-                                cell?.backgroundColor = UIColor.red
+                                cell?.imgView.image = UIImage(named:"greenIcon")
                                 selectedIndexes .add(newIndexPath.row)
                             }
 
@@ -96,15 +96,15 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
                     } else {
                         for i in startingRow ... (indexPath?.row)!  {
                             let newIndexPath = IndexPath(row: i, section: 1)
-                            let cell = collectionView!.cellForItem(at: newIndexPath)
+                            let cell = collectionView!.cellForItem(at: newIndexPath) as? DateCollectionViewCell
                             //                            cell?.backgroundColor = UIColor.red
                             //                            selectedIndexes .add(newIndexPath.row)
 
 
                             if newIndexPath.row % 7 == 5 || newIndexPath.row % 7 == 6{
-                                cell?.backgroundColor = UIColor.white
+                                cell?.imgView.image = UIImage(named:"crossIcon")
                             } else {
-                                cell?.backgroundColor = UIColor.red
+                               cell?.imgView.image = UIImage(named:"greenIcon")
                                 selectedIndexes .add(newIndexPath.row)
                             }
                         }
@@ -112,10 +112,10 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
 
                 } else {
 
-                    for i in 0 ..< self.items.count  {
+                    for i in 0 ..< self.days.count  {
                         let newIndexPath = IndexPath(row: i, section: 1)
-                        let cell = collectionView!.cellForItem(at: newIndexPath)
-                        cell?.backgroundColor = UIColor.white
+                        let cell = collectionView!.cellForItem(at: newIndexPath) as? DateCollectionViewCell
+                       cell?.imgView.image = UIImage(named:"grayIcon")
                     }
                     selectedIndexes.removeAllObjects()
 
@@ -126,13 +126,13 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
                         for index in stride(from: startingRow, to: last, by: -1){
 
                             let newIndexPath = IndexPath(row: index, section: 1)
-                            let cell = collectionView!.cellForItem(at: newIndexPath)
+                            let cell = collectionView!.cellForItem(at: newIndexPath) as? DateCollectionViewCell
                             //                            cell?.backgroundColor = UIColor.red
 
                             if newIndexPath.row % 7 == 5 || newIndexPath.row % 7 == 6{
-                                cell?.backgroundColor = UIColor.white
+                                cell?.imgView.image = UIImage(named:"crossIcon")
                             } else {
-                                cell?.backgroundColor = UIColor.red
+                                cell?.imgView.image = UIImage(named:"greenIcon")
                                 selectedIndexes .add(newIndexPath.row)
                             }
 
@@ -146,27 +146,18 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
                     } else {
                         for i in startingRow ... (indexPath?.row)!  {
                             let newIndexPath = IndexPath(row: i, section: 1)
-                            let cell = collectionView!.cellForItem(at: newIndexPath)
-                            //                            cell?.backgroundColor = UIColor.red
-
+                            let cell = collectionView!.cellForItem(at: newIndexPath) as? DateCollectionViewCell
                             if newIndexPath.row % 7 == 5 || newIndexPath.row % 7 == 6{
-                                cell?.backgroundColor = UIColor.white
+                                cell?.imgView.image = UIImage(named:"crossIcon")
                             } else {
-                                cell?.backgroundColor = UIColor.red
+                                cell?.imgView.image = UIImage(named:"greenIcon")
                                 selectedIndexes .add(newIndexPath.row)
                             }
 
-                            //                            selectedIndexes .add(newIndexPath.row)
                         }
                     }
 
                 }
-
-
-
-
-
-
 
             }else if pan.state == UIGestureRecognizerState.ended{
 
@@ -175,8 +166,8 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
 
                 if startingRow == indexPath?.row {
                     let newIndexPath = IndexPath(row: startingRow, section: 1)
-                    let cell = collectionView!.cellForItem(at: newIndexPath)
-                    cell?.backgroundColor = UIColor.white
+                    let cell = collectionView!.cellForItem(at: newIndexPath) as? DateCollectionViewCell
+                    cell?.imgView.image = UIImage(named:"grayIcon")
                     selectedIndexes.removeAllObjects()
                 }
                 
@@ -194,7 +185,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
     }
 
     let reuseIdentifier = "DateCollectionViewCell" // also enter this string as the cell identifier in the storyboard
-    var items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
+    var days = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
 
     var weeks = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
@@ -207,7 +198,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
             return 7
         }
         else{
-    return self.items.count
+    return self.days.count
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -216,11 +207,11 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
         if indexPath.section == 0 {
         cell.dateLbl.text = self.weeks[indexPath.item]
             cell.dateLbl.textColor = UIColor.white
-            cell.backgroundColor = UIColor.blue
+            cell.backgroundColor = UIColor.white
         }
         else{
-            cell.dateLbl.text = self.items[indexPath.item]
-            cell.backgroundColor = UIColor.cyan
+            cell.dateLbl.text = self.days[indexPath.item]
+            cell.backgroundColor = UIColor.white
         }
 
 
@@ -236,6 +227,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
         return CGSize.init(width: width, height: width);
     }
 
+    
 
 }
 

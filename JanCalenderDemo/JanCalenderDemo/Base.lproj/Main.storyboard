@@ -23,7 +23,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3AT-Iy-VDL">
                                 <rect key="frame" x="0.0" y="67" width="375" height="447"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="447" id="nhX-KI-TOb"/>
                                 </constraints>
@@ -41,24 +41,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grayIcon" translatesAutoresizingMaskIntoConstraints="NO" id="6v0-Ds-aKi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EX5-KB-4tv">
                                                     <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="6v0-Ds-aKi" secondAttribute="trailing" id="1ZK-Ex-h7y"/>
+                                            <constraint firstItem="6v0-Ds-aKi" firstAttribute="leading" secondItem="WVy-Hk-8im" secondAttribute="leading" id="8Rk-OQ-4K1"/>
+                                            <constraint firstItem="6v0-Ds-aKi" firstAttribute="top" secondItem="WVy-Hk-8im" secondAttribute="top" id="HZB-uY-bV2"/>
                                             <constraint firstItem="EX5-KB-4tv" firstAttribute="top" secondItem="WVy-Hk-8im" secondAttribute="top" id="Hse-Qd-8mc"/>
                                             <constraint firstAttribute="bottom" secondItem="EX5-KB-4tv" secondAttribute="bottom" id="QKx-CI-E6G"/>
                                             <constraint firstAttribute="trailing" secondItem="EX5-KB-4tv" secondAttribute="trailing" id="bud-69-Rra"/>
                                             <constraint firstItem="EX5-KB-4tv" firstAttribute="leading" secondItem="WVy-Hk-8im" secondAttribute="leading" id="fbh-Xg-wlc"/>
+                                            <constraint firstAttribute="bottom" secondItem="6v0-Ds-aKi" secondAttribute="bottom" id="g3e-3m-a6B"/>
                                         </constraints>
                                         <size key="customSize" width="42" height="42"/>
                                         <connections>
                                             <outlet property="dateLbl" destination="EX5-KB-4tv" id="UoH-qF-Uss"/>
+                                            <outlet property="imgView" destination="6v0-Ds-aKi" id="Zcg-xW-BWg"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -85,4 +95,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="grayIcon" width="49" height="48"/>
+    </resources>
 </document>

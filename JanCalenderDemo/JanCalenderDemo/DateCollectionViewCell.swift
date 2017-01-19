@@ -10,5 +10,6 @@ import UIKit
 
 class DateCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var imgView: UIImageView!
     @IBOutlet var dateLbl: UILabel!
 }
