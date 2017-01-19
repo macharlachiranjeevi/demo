@@ -49,7 +49,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
         } else {
             if pan.state == UIGestureRecognizerState.began{
 
-                collectionView.isUserInteractionEnabled = false
+                //collectionView.isUserInteractionEnabled = false
                 collectionView.isScrollEnabled = false
 
 
@@ -136,12 +136,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
                                 selectedIndexes .add(newIndexPath.row)
                             }
 
-
-
-                            //                            selectedIndexes .add(newIndexPath.row)
                         }
-
-
 
                     } else {
                         for i in startingRow ... (indexPath?.row)!  {
@@ -206,7 +201,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! DateCollectionViewCell
         if indexPath.section == 0 {
         cell.dateLbl.text = self.weeks[indexPath.item]
-            cell.dateLbl.textColor = UIColor.white
+            cell.dateLbl.textColor = UIColor.blue
             cell.backgroundColor = UIColor.white
         }
         else{
@@ -227,7 +222,7 @@ class ViewController: UIViewController ,UICollectionViewDelegate,UICollectionVie
         return CGSize.init(width: width, height: width);
     }
 
-    
+
 
 }
 
